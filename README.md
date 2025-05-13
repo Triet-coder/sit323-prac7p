@@ -23,22 +23,26 @@ kubectl apply -f kubernetes/app-deployment.yaml
 kubectl apply -f kubernetes/app-service.yaml
 
 5. Port Forward and Test
+   
 kubectl port-forward svc/my-app-service 3000:3000
+
 In another terminal:
 $body = @{ name = "Alice" } | ConvertTo-Json -Compress
 Invoke-RestMethod -Uri http://localhost:3000/users -Method POST -Body $body -ContentType "application/json"
 
 MongoDB Backup & Restore
+
 Backup (inside pod):
 kubectl exec -it deploy/mongo -- bash
 mongodump -u mongoadmin -p password --authenticationDatabase admin --out /data/backup
+
 Copy Backup to Local Machine:
 kubectl cp <mongo-pod-name>:/data/backup ./mongo-backup
 
 Deliverables
-[x] MongoDB deployed with authentication and persistent storage
-[x] Node.js app containerized and deployed
-[x] Kubernetes YAML files for app, MongoDB, services, PV/PVC, and secrets
-[x] CRUD operations tested via PowerShell
-[x] Manual MongoDB backup created and exported
-[x] GitHub repo includes all configs, code, and documentation
+- MongoDB deployed with authentication and persistent storage
+- Node.js app containerized and deployed
+- Kubernetes YAML files for app, MongoDB, services, PV/PVC, and secrets
+- CRUD operations tested via PowerShell
+- Manual MongoDB backup created and exported
+- GitHub repo includes all configs, code, and documentation
