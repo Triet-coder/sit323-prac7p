@@ -34,3 +34,11 @@ kubectl exec -it deploy/mongo -- bash
 mongodump -u mongoadmin -p password --authenticationDatabase admin --out /data/backup
 Copy Backup to Local Machine:
 kubectl cp <mongo-pod-name>:/data/backup ./mongo-backup
+
+Deliverables
+[x] MongoDB deployed with authentication and persistent storage
+[x] Node.js app containerized and deployed
+[x] Kubernetes YAML files for app, MongoDB, services, PV/PVC, and secrets
+[x] CRUD operations tested via PowerShell
+[x] Manual MongoDB backup created and exported
+[x] GitHub repo includes all configs, code, and documentation
